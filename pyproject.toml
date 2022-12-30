@@ -8,7 +8,6 @@ packages = [{include = "sparklml_base_classes"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-docutils = "^0.19"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
@@ -17,6 +16,7 @@ chispa = "^0.9.2"
 black = "^22.10.0"
 pylint = "^2.15.8"
 numpy = "^1.23.5"
+pyspark = "^3.3.1"
 
 [build-system]
 requires = ["poetry-core"]

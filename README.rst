@@ -1,7 +1,7 @@
-Custom Spark ML Pipelines
-=========================
+Custom SparkML Pipelines
+========================
 
-This document includes an example of how to build a custom Estimator and Transformer, and how to integrate them to Spark ML Pipelines. For information about the Spark ML Pipelines concepts and use of existing Estimators and Transformers within the SparkML module, please refer to the `Spark ML Pipelines <https://spark.apache.org/docs/latest/ml-pipeline.html>`__ documentation.
+This document includes an example of how to build a custom Estimator and Transformer using the base classes in this repository, and how to integrate them with SparkML Pipelines. For information about the SparkML Pipelines concepts and use of existing Estimators and Transformers within the SparkML module, please refer to the `Spark ML Pipelines <https://spark.apache.org/docs/latest/ml-pipeline.html>`__ documentation.
 
 Build a custom Transformer
 --------------------------
@@ -17,7 +17,7 @@ In this section we build a Transformer that adds a constant to a column and upda
 
     import pyspark.sql.functions as F
     from pyspark import keyword_only
-    from aditrade.etl.sparkml_base_classes import TransformerBaseClass
+    from sparkml_base_classes import TransformerBaseClass
 
 
     class AdditionColumnTransformer(TransformerBaseClass):
@@ -27,8 +27,7 @@ In this section we build a Transformer that adds a constant to a column and upda
             super().__init__()
 
         def _transform(self, ddf):
-            # add your transformation logic here
-            self._logger.info(f"Creating new column {self._column_name}")
+            self._logger.info("AdditionColumn transform with column {self._column_name}")
             ddf = ddf.withColumn(self._column_name, F.col(self._column_name) + self._value)
             return ddf
 
@@ -52,7 +51,7 @@ In this section we build an Estimator that normalizes the values of a column by 
 
     import pyspark.sql.functions as F
     from pyspark import keyword_only
-    from aditrade.etl.sparkml_base_classes import EstimatorBaseClass, TransformerBaseClass
+    from sparkml_base_classes import EstimatorBaseClass, TransformerBaseClass
 
     class MeanNormalizerTransformer(TransformerBaseClass):
 
@@ -62,7 +61,7 @@ In this section we build an Estimator that normalizes the values of a column by 
 
         def _transform(self, ddf):
             # add your transformation logic here
-            self._logger.info("Normalizing values by the mean")
+            self._logger.info("MeanNormalizer transform")
             ddf = ddf.withColumn(self._column_name, F.col(self._column_name) / self._mean)
             return ddf
 
@@ -74,7 +73,7 @@ In this section we build an Estimator that normalizes the values of a column by 
 
         def _fit(self, ddf):
             # add your transformation logic here
-            self._logger.info("Calculating the mean")
+            self._logger.info("MeanNormalizer fit")
             mean, = ddf.agg(F.mean(self._column_name)).head()
             return MeanNormalizerTransformer(
                 column_name=self._column_name,

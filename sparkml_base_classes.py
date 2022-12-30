@@ -125,7 +125,7 @@ class EstimatorBaseClass(_SparkMLBaseClass, Estimator):  # pylint: disable=too-m
             import pyspark.sql.functions as F
             from pyspark import keyword_only
             from pyspark.sql import SparkSession
-            from aditrade.etl.sparkml_base_classes import EstimatorBaseClass, TransformerBaseClass
+            from sparkml_base_classes import EstimatorBaseClass, TransformerBaseClass
 
             class MeanNormalizerTransformer(TransformerBaseClass):
 
@@ -134,8 +134,7 @@ class EstimatorBaseClass(_SparkMLBaseClass, Estimator):  # pylint: disable=too-m
                     super().__init__()
 
                 def _transform(self, ddf):
-                    # add your transformation logic here
-                    self._logger.info("Normalizing values by the mean")
+                    self._logger.info("MeanNormalizer transform")
                     ddf = ddf.withColumn(self._column_name, F.col(self._column_name) / self._mean)
                     return ddf
 
@@ -146,8 +145,7 @@ class EstimatorBaseClass(_SparkMLBaseClass, Estimator):  # pylint: disable=too-m
                     super().__init__()
 
                 def _fit(self, ddf):
-                    # add your transformation logic here
-                    self._logger.info("Calculating the mean")
+                    self._logger.info("MeanNormalizer fit")
                     mean, = ddf.agg(F.mean(self._column_name)).head()
                     return MeanNormalizerTransformer(
                         column_name=self._column_name,
@@ -225,7 +223,7 @@ class TransformerBaseClass(_SparkMLBaseClass, Transformer):  # pylint: disable=t
             import pyspark.sql.functions as F
             from pyspark import keyword_only
             from pyspark.sql import SparkSession
-            from aditrade.etl.sparkml_base_classes import TransformerBaseClass
+            from sparkml_base_classes import TransformerBaseClass
 
 
             class AddConstantColumnTransformer(TransformerBaseClass):
@@ -235,8 +233,7 @@ class TransformerBaseClass(_SparkMLBaseClass, Transformer):  # pylint: disable=t
                     super().__init__()
 
                 def _transform(self, ddf):
-                    # add your transformation logic here
-                    self._logger.info("Creating constant column name")
+                    self._logger.info("AddConstantColumn transform")
                     ddf = ddf.withColumn(self._column_name, F.lit(self._value))
                     return ddf
 
