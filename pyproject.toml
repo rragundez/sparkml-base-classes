@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "sparklml-base-classes"
+name = "sparklml_base_classes"
 version = "0.0.0"
 description = "SparkML base classes for Transformers and Estimators"
 authors = ["Rodrigo Agundez <rragundez@gmail.com>"]
-readme = "README.md"
+readme = "README.rst"
 packages = [{include = "sparklml_base_classes"}]
 
 [tool.poetry.dependencies]
