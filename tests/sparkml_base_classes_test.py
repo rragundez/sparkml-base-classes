@@ -7,7 +7,7 @@ from pyspark import keyword_only
 from pyspark.ml import Pipeline, PipelineModel
 from pyspark.ml.param import Param
 
-from src import sparkml_base_classes as sbc
+import sparkml_base_classes as sbc
 
 
 def test_sparkmlmeta():
