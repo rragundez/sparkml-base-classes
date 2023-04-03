@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "sparklml_base_classes"
+name = "sparkml-base-classes"
 version = "0.0.0"
 description = "SparkML base classes for Transformers and Estimators"
 authors = ["Rodrigo Agundez <rragundez@gmail.com>"]
