@@ -1,7 +1,14 @@
 Custom SparkML Pipelines
 ========================
 
-This document includes an example of how to build a custom Estimator and Transformer using the base classes in this repository, and how to integrate them with SparkML Pipelines. For information about the SparkML Pipelines concepts and use of existing Estimators and Transformers within the SparkML module, please refer to the `Spark ML Pipelines <https://spark.apache.org/docs/latest/ml-pipeline.html>`__ documentation.
+This document includes an example of how to build a custom Estimator and Transformer using the base classes in this package, and how to integrate them with SparkML Pipelines. For information about the SparkML Pipelines concepts and use of existing Estimators and Transformers within the SparkML module, please refer to the `Spark ML Pipelines <https://spark.apache.org/docs/latest/ml-pipeline.html>`__ documentation.
+
+Installation
+------------
+
+.. code-block:: bash
+
+    pip install -U sparkml-base-classes
 
 Build a custom Transformer
 --------------------------
