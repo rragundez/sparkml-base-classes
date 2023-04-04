@@ -12,7 +12,6 @@ In this section we build a Transformer that adds a constant to a column and upda
 
     The arguments set in the `__init__` method will be accessible in the `_transform` method as attributes by adding an underscore prefix to the argument name. In the example below the arguments are `column_name` and `value`, and they are available as attributes in the `_transform` method as `self._column_name` and `self._value`.
 
-.. highlight:: python
 .. code-block:: python
 
     import pyspark.sql.functions as F
@@ -46,7 +45,6 @@ In this section we build an Estimator that normalizes the values of a column by 
 
     The arguments set in the `__init__` method will be accessible in the `_transform` and `_fit` methods as attributes by adding an underscore prefix to the argument name. In the example below the arguments are `column_name` and `mean`, and they are available as attributes in the `_transform` and `_fit` method as `self._column_name` and `self._mean`.
 
-.. highlight:: python
 .. code-block:: python
 
     import pyspark.sql.functions as F
@@ -89,7 +87,6 @@ In this section we will build a Pipeline containing our custom Transformer and E
     We can also use Transformers and Estimators individually by calling their respective `_transform` and `_fit` methods, the advantage of using a Pipeline is to chain them together therefore reducing the code maintenance needed. In addition, it is a good practice to always use them as part of a Pipeline.
 
 
-.. highlight:: python
 .. code-block:: python
 
     from pyspark.ml import Pipeline
@@ -109,7 +106,6 @@ In this section we will fit the created Pipeline to a DataFrame and then use the
 .. note::
     The returned object of fitting a Pipeline is not a Pipeline object but a PipelineModel.
 
-.. highlight:: python
 .. code-block:: python
 
     from pyspark.sql import SparkSession
@@ -145,7 +141,6 @@ In the previous section we transformed the DataFrame immediately after fitting t
 .. note::
     If you are using Spark in an AWS service, like SageMaker, the path to save the model can be an S3 path. This will work out-of-the-box given that the correct permission to read/write to that path are set.
 
-.. highlight:: python
 .. code-block:: python
 
     from pyspark.ml import PipelineModel

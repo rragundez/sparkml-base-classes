@@ -119,7 +119,6 @@ class EstimatorBaseClass(_SparkMLBaseClass, Estimator):  # pylint: disable=too-m
     `_transform` method.
 
     Example:
-        .. highlight:: python
         .. code-block:: python
 
             import pyspark.sql.functions as F
@@ -217,7 +216,6 @@ class TransformerBaseClass(_SparkMLBaseClass, Transformer):  # pylint: disable=t
     `_transform` method.
 
     Example:
-        .. highlight:: python
         .. code-block:: python
 
             import pyspark.sql.functions as F

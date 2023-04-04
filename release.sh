@@ -19,8 +19,17 @@ git commit -m "Release ${version}"
 git tag -a $version -m "My release ${version}"
 
 # push changes
-git push origin main
+git push origin master
 git push origin --tags
 
-# release
-poetry publish --build -v
+# check
+poetry check
+
+# build
+poetry build --no-cache
+
+# check
+poetry run twine check dist/*
+
+# publish
+poetry publish -v
