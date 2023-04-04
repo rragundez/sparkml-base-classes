@@ -4,6 +4,7 @@ version = "0.0.0"
 description = "SparkML base classes for Transformers and Estimators"
 authors = ["Rodrigo Agundez <rragundez@gmail.com>"]
 readme = "README.rst"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 
@@ -15,6 +16,7 @@ black = "^22.10.0"
 pylint = "^2.15.8"
 numpy = "^1.23.5"
 pyspark = "^3.3.1"
+toml = "^0.10.2"
 
 [build-system]
 requires = ["poetry-core"]
