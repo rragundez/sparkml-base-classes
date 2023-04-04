@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sparkml-base-classes"
-version = "0.1.0"
+version = "0.1.1"
 description = "SparkML base classes for Transformers and Estimators"
 authors = ["Rodrigo Agundez <rragundez@gmail.com>"]
 readme = "README.rst"
@@ -17,6 +17,7 @@ pylint = "^2.15.8"
 numpy = "^1.23.5"
 pyspark = "^3.3.1"
 toml = "^0.10.2"
+twine = "^4.0.2"
 
 [build-system]
 requires = ["poetry-core"]
