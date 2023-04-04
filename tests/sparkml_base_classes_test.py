@@ -10,6 +10,17 @@ from pyspark.ml.param import Param
 from sparkml_base_classes import sparkml_base_classes as sbc
 
 
+def test_top_level_imports():
+    """Test that higher-level imports work."""
+    import sparkml_base_classes
+
+    assert hasattr(sparkml_base_classes, "TransformerBaseClass")
+    assert sparkml_base_classes.TransformerBaseClass is sbc.TransformerBaseClass
+
+    assert hasattr(sparkml_base_classes, "EstimatorBaseClass")
+    assert sparkml_base_classes.EstimatorBaseClass is sbc.EstimatorBaseClass
+
+
 def test_sparkmlmeta():
 
     # check that all the methods are added by the metaclass when arguments are None
