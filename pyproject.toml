@@ -4,8 +4,6 @@ version = "0.0.0"
 description = "SparkML base classes for Transformers and Estimators"
 authors = ["Rodrigo Agundez <rragundez@gmail.com>"]
 readme = "README.rst"
-packages = [{include = "sparkml_base_classes"}]
-
 [tool.poetry.dependencies]
 python = "^3.9"
 
@@ -31,4 +29,5 @@ ignored-modules = "pyspark"
 disable = [
   "unused-argument",
   "too-few-public-methods",
+  "missing-module-docstring",
 ]

@@ -12,7 +12,7 @@ from pyspark.ml.util import DefaultParamsWritable, DefaultParamsReadable
 class _SparkMLMeta(ABCMeta):
     """Meta class to check that all arguments in the constructor have a default value"""
 
-    def __new__(cls, name, bases, attrs):  # pylint: disable=arguments-differ
+    def __new__(mcs, name, bases, attrs):  # pylint: disable=arguments-differ
         # only check for classes that inherit from the base classes in this module
         if not name.endswith("BaseClass"):
             init_func = attrs.get("__init__", None)
@@ -41,7 +41,7 @@ class _SparkMLMeta(ABCMeta):
                 raise SyntaxError(
                     f"The __init__ method of {name} must use the @pyspark.keyword_only decorator"
                 )
-        return super().__new__(cls, name, bases, attrs)
+        return super().__new__(mcs, name, bases, attrs)
 
 
 class _SparkMLBaseClass(DefaultParamsReadable, DefaultParamsWritable, metaclass=_SparkMLMeta):
